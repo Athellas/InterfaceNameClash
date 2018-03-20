@@ -10,6 +10,18 @@ namespace InterfaceNameClash
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("***** Fun with Interface Name Clashes *****\n");
+            Octagon oct = new Octagon();
+            
+            IDrawToForm itfForm = oct;
+            itfForm.Draw();
+
+            ((IDrawToPrinter)oct).Draw();
+
+            if(oct is IDrawToMemory)
+                ((IDrawToMemory)oct).Draw();
+
+            Console.ReadLine();
         }
     }
 }
